@@ -1,0 +1,10 @@
+services:
+  mainservice:
+    image: terraform-update-placeholders
+    network_mode: host
+    working_dir: /infrastructure
+    environment:
+      #- MY_SECRET=${MY_SECRET}
+      - MY_SECRET=mySpecialSecretValue
+    entrypoint: ["sh", "-c"]
+    command: ["cd terraform && sh updateVariables.sh && terraform init && terraform validate && terraform apply -auto-approve"]
