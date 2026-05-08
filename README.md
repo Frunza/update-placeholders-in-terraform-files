@@ -40,7 +40,6 @@ To do this, you can write a simple script to do that:
 #!/bin/sh 
 
 sed -i "s/_MY_SECRET_/${MY_SECRET}/" ./outputs.tf
-
 echo "Replacement of MY_SECRET done"
 ```
 Now you only want to provide the `MY_SECRET` environment variable to the container running your code, and call the previous script.
