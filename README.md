@@ -47,7 +47,7 @@ Now you only want to provide the `MY_SECRET` environment variable to the contain
 If your initial `docker compose` file was written as:
 ```sh
 services:
-  mainservice:
+  main:
     image: terraform-update-placeholders
     network_mode: host
     working_dir: /infrastructure
@@ -57,7 +57,7 @@ services:
 , you now have to add the `MY_SECRET` environment variable and add the script call:
 ```sh
 services:
-  mainservice:
+  main:
     image: terraform-update-placeholders
     network_mode: host
     working_dir: /infrastructure
@@ -74,6 +74,6 @@ If you already prepared a `MY_SECRET` environment variable, use the commented li
 Just run the necessary docker commands:
 ```sh
 docker build -f docker/dockerfile -t terraform-update-placeholders .
-docker compose -f docker/docker-compose.yml run --rm mainservice
+docker compose -f docker/docker-compose.yml run --rm main
 ```
 and observe the output. The `_MY_SECRET_` placeholder should be updated with your desired value.
